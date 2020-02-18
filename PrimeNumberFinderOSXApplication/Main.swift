@@ -19,6 +19,8 @@ func noInputCheck(input : String) -> String {
             return "9,709,387,509,743"
         } else if selection == 2 {
             return "232,323,808,049"
+        } else if selection == 3 {
+            return "384,098,409,414,317,137"
         }
     }
     return input
