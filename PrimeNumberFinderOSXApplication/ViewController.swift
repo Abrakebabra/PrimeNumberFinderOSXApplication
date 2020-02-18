@@ -35,7 +35,9 @@ class ViewController: NSViewController {
             return
         }
         
+        // add comma separators to digits in input field to beautify it
         inputText.stringValue = commaSeparate(input: validInteger)
+        // do the magic
         outputText.stringValue = primeNumFinder(integer: validInteger)
     }
     
