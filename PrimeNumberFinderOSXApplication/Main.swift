@@ -90,7 +90,6 @@ func primeNumFinder(integer : Int) -> String{
         }
     }
     
-
     let divisibleString : String = commaSeparate(input: divisibleBy)
     let tested : String = commaSeparate(input: (i - 1) / 2)
     let again = "Hit me baby one more prime!"
