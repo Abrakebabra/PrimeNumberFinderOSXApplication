@@ -13,7 +13,7 @@ import Foundation
 func noInputCheck(input : String) -> String {
     // If nothing has been input, give pre-selected integer
     if input.isEmpty {
-        let selection : Int = Int.random(in: 1...2)
+        let selection : Int = Int.random(in: 1...3)
         
         if selection == 1 {
             return "9,709,387,509,743"
@@ -58,9 +58,13 @@ func integerCheck(input : Int) -> Int {
 
 func commaSeparate(input: Int) -> String {
     // Takes an integer, formats it to a string with commas every 3 digits
+    // Convert to decimal otherwise numbers like 11,111,111,111,111,111 are altered.
+    // Reasoning: https://stackoverflow.com/questions/45520019/numberformatter-issue-for-large-number
+    // formatter uses double arithmetic which uses around 16-17 characters at most which can produce different results.
+    let inputDecimal : Decimal = Decimal(input)
     let numberFormatter = NumberFormatter()
     numberFormatter.numberStyle = .decimal
-    let formatted : String? = numberFormatter.string(from: NSNumber(value:input))
+    let formatted : String? = numberFormatter.string(for: inputDecimal)
     
     if let formattedString : String = formatted {
         return formattedString

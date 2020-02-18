@@ -17,7 +17,6 @@ class ViewController: NSViewController {
     
     @IBAction func findPrimeButton(_ sender: Any) {
         
-        outputText.stringValue = "Thinking..."
         // If nothing in field, put in a number
         inputText.stringValue = noInputCheck(input: inputText.stringValue)
         // Raw String
