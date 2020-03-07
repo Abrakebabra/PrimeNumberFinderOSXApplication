@@ -36,8 +36,22 @@ class ViewController: NSViewController {
         
         // add comma separators to digits in input field to beautify it
         inputText.stringValue = commaSeparate(input: validInteger)
-        // do the magic
-        outputText.stringValue = primeNumFinder(integer: validInteger)
+        
+        // notify user that program isn't frozen
+        self.outputText.stringValue = "Thinking..."
+        
+        //  open up background thread to work without locking up UI
+        DispatchQueue.global().async(qos: .background) {
+            // do the magic
+            let output = primeNumFinder(integer: validInteger)
+            
+            DispatchQueue.main.async {
+                // UI stuff must only be used from main thread only
+                self.outputText.stringValue = output
+            }
+            
+        }
+       
     }
     
     
